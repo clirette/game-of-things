@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const mongojs = require('mongojs');
-const db = mongojs('things', ['answers']);
+const db = mongojs('things', ['answers', 'players']);
 
 const app = express();
 app.use(express.urlencoded({extended: true}));

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Submitted!</h1>
-  <a href="/answers">Go to Answers</a>
-</body>
-</html>
+<% include ./partials/header %>
+  <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Well done!</strong> Now hang tight until everyone else submits their answers.
+    </div>
+  <a href="/answers" class="btn btn-info" style="cursor: pointer;">Go to Answers</a>
+<% include ./partials/footer %>

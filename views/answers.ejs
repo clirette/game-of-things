@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<% include ./partials/header %>
   <h1>Answers</h1>
-  <% ans.forEach(answer => { %>
-    <p><%= answer.answer %></p>
-  <% }) %>
-  <a href="/submit">New Round</a>
-</body>
-</html>
+    <% ans.forEach(answer => { %>
+      <p><%= answer.answer %><i class="fas fa-check-circle guessed" style="margin-left: 10vw;"></i></p>
+    <% }) %>
+  <h1 id="guessed-answers">Guessed</h1>
+  <div class="score-div">
+    <h1>Scores</h1>
+    <form action="/submit" method="GET">
+      <div class="form-group">
+
+        <% players.forEach(player => { %>
+          <div class="row">
+            <div class="col-sm-2">
+              <label for="score" class="col-form-label player-name"><%= player.name %></label>
+            </div>
+            <div class="col-sm-4">
+              <input type="text" name="score" data-pname="<%= player.name %>" value="<%= player.score %>" class="form-control scores">
+              <input type="text" name="playerName" style="display: none;" value="<%= player.name %>" class="names">
+            </div>
+          </div>
+          <% }) %>
+      </div>
+      <button type="submit" class="btn btn-info">New Round</a>
+    </form>
+  </div>
+  <a href="/reset" style="margin-top: 10vh; display: inline-block;">End Game</a>
+  <script src="js/answers.js"></script>
+  <% include ./partials/footer %>
